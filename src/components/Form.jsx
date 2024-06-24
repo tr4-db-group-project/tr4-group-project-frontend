@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Listbox, ListboxOption, ListboxOptions, ListboxButton, ListboxLabel, Label } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
-import axios from 'axios';
+import axios from '../axios';
 
 const events = [
   { id: 1, name: 'Rock Fest 2024' },
@@ -23,41 +23,23 @@ function classNames(...classes) {
 }
 
 export default function Form() {
-
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [selectedTickets, setSelectedTickets] = useState(ticketNumbers[0]);
   const [email, setEmail] = useState('');
   const [submittedData, setSubmittedData] = useState(null);
 
-
-/*
-
-  const [events, setEvents] = useState(events[0])
-//get events from backend
-useEffect(() => {
-  axios.get('/api/events')
-    .then(response => {
-      setEvents(response.data);
-    })
-    .catch(error => {
-      console.error('There was an error fetching the events', error);
-    });
-}, []);
-
-*/
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const dataToSubmit = {
-      eventId: selectedEvent.id,
+      id: selectedEvent.id,
       eventName: selectedEvent.name,
-      tickets: selectedTickets,
+      numberOfTickets: selectedTickets,
       email: email,
     };
 
     try {
-      const response = await axios.post('https:/localhost:8080/api/ticket', dataToSubmit);
+      const response = await axios.post('', dataToSubmit);
       setSubmittedData(dataToSubmit);
       console.log('Order submitted:', response.data);
     } catch (error) {
@@ -171,7 +153,7 @@ useEffect(() => {
         )}
       </Listbox>
 
-      <div className="mt-4 ">
+      <div className="mt-4 py-5">
         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
           Email
         </label>
@@ -181,13 +163,13 @@ useEffect(() => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-1 block py-2 px-4 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 block py-2 px-5 w-full rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           required
         />
       </div>
 
       <button
-        onClick={handleSubmit(e)}
+        onClick={handleSubmit}
         className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Submit
@@ -197,8 +179,8 @@ useEffect(() => {
         <div className="mt-4">
           <h2 className="text-lg font-semibold">Recorded Data</h2>
           <p>EventId: {submittedData.id}</p>
-          <p>Event: {submittedData.event}</p>
-          <p>Tickets: {submittedData.tickets}</p>
+          <p>Event: {submittedData.eventName}</p>
+          <p>Tickets: {submittedData.numberOfTickets}</p>
           <p>Email: {submittedData.email}</p>
         </div>
       )}
