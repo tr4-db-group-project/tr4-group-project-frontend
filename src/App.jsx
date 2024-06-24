@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <h2>Heeloow</h2>
+    <h1>BOOK YOUR TICKETS</h1>
     <Form />
     </>
   )
