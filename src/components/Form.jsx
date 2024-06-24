@@ -4,6 +4,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import axios from '../axios';
 
 const events = [
+  { id: 1, name: 'Choose Event To Book' },
   { id: 1, name: 'Rock Fest 2024' },
   { id: 2, name: 'Jazz Night Live' },
   { id: 3, name: 'Country Music Festival' },
@@ -16,7 +17,7 @@ const events = [
   { id: 10, name: 'Blues and Brews Festival' },
 ];
 
-const ticketNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const ticketNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -42,10 +43,18 @@ export default function Form() {
       const response = await axios.post('', dataToSubmit);
       setSubmittedData(dataToSubmit);
       console.log('Order submitted:', response.data);
+      resetForm();
     } catch (error) {
       console.error('Error submitting order:', error);
     }
   }
+
+  const resetForm = () => {
+    setSelectedEvent(events[0]);
+    setSelectedTickets(ticketNumbers[0]);
+    setEmail('');
+  }
+
 
   return (
     <div className="space-y-4">
