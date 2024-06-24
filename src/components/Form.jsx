@@ -50,9 +50,9 @@ useEffect(() => {
     e.preventDefault();
 
     const dataToSubmit = {
-      eventId: selectedEvent.id,
+      id: selectedEvent.id,
       eventName: selectedEvent.name,
-      tickets: selectedTickets,
+      numberOfTickets: selectedTickets,
       email: email,
     };
 
