@@ -12,49 +12,49 @@ import axios from "../axios";
 
 const events = [
   {
-    eventId: "a1b2c38895f6",
-    eventName: "Choose your event"
+    eventId: "c1b7c2e0-3e1f-4e4a-9c8a-6e5f7a3b3d6y",
+    eventName: "Choose your event",
   },
   {
-    eventId: "a1b2c3d4e5f6",
-    eventName: "Rock Concert"
-  },
-  {
-    eventId: "b2c3d4e5f6a7",
-    eventName: "Soccer Match"
-  },
-  {
-    eventId: "c3d4e5f6a7b8",
+    eventId: "c1b7c2e0-3e1f-4e4a-9c8a-6e5f7a3b3f8c",
     eventName: "Jazz Festival"
-  },
-  {
-    eventId: "d4e5f6a7b8c9",
-    eventName: "Basketball Game"
-  },
-  {
-    eventId: "e5f6a7b8c9d0",
+},
+{
+    eventId: "a7f8b6d5-2e3c-4a1b-9d0e-8f7a6b5c4d3e",
+    eventName: "Rock Concert"
+},
+{
+    eventId: "f3e2d1c0-5b4a-4c3d-8e9f-0a1b2c3d4e5f",
     eventName: "Electronic Dance Party"
-  },
-  {
-    eventId: "f6a7b8c9d0e1",
-    eventName: "Tennis Tournament"
-  },
-  {
-    eventId: "1a2b3c4d5e6f",
-    eventName: "Classical Music Recital"
-  },
-  {
-    eventId: "2b3c4d5e6f7a",
-    eventName: "Golf Championship"
-  },
-  {
-    eventId: "3c4d5e6f7a8b",
+},
+{
+    eventId: "b5c4d3e2-1a0b-4f7e-8d9c-2e3f4a5b6c7d",
+    eventName: "Soccer Match"
+},
+{
+    eventId: "e5f6a7b8-c9d0-1a2b-3c4d-5e6f7a8b9c0d",
+    eventName: "Classical Concert"
+},
+{
+    eventId: "2b3c4d5e-6f7a8b9c-0d1e-2f3g-4h5i6j7k8l9",
+    eventName: "Basketball Game"
+},
+{
+    eventId: "g3h4i5j6-k7l8m9n0-o1p2q3r4s5t6u7v8w9x0y",
     eventName: "Indie Band Showcase"
-  },
-  {
-    eventId: "4d5e6f7a8b9c",
+},
+{
+    eventId: "4h5i6j7k-8l9m0n1o-2p3q4r5s-6t7u8v9w0x-1y2z3a4b5c",
+    eventName: "Tennis Tournament"
+},
+{
+    eventId: "i7j8k9l0-m1n2o3p4-5q6r7s8t9-0u1v2w3x4-5y6z7a8b9c",
+    eventName: "Golf Championship"
+},
+{
+    eventId: "j8k9l0m1-n2o3p4q5-6r7s8t9u0-1v2w3x4y5-6z7a8b9c0d",
     eventName: "Surfing Competition"
-  }
+}
 ];
 
 const ticketNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -77,7 +77,7 @@ export default function Form() {
 
     let hasError = false;
 
-    if (selectedEvent.eventId === "a1b2c38895f6") {
+    if (selectedEvent.eventId === "c1b7c2e0-3e1f-4e4a-9c8a-6e5f7a3b3d6y") {
       setEventError("You must choose an event");
       hasError = true;
     } else {
@@ -110,6 +110,8 @@ export default function Form() {
       email: email,
     };
 
+    console.log("Data to submit:", dataToSubmit);
+
     try {
       const response = await axios.post("", dataToSubmit);
       setSubmittedData(dataToSubmit);
@@ -138,7 +140,9 @@ export default function Form() {
             <Label className="block text-sm font-medium leading-6 text-gray-900">
               Choose Event
             </Label>
-            <div className={`relative mt-2 ${eventError ? "border-red-500" : ""}`}>
+            <div
+              className={`relative mt-2 ${eventError ? "border-red-500" : ""}`}
+            >
               <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
                 <span className="flex items-center">
                   <span className="ml-3 block truncate">
@@ -192,7 +196,9 @@ export default function Form() {
                 ))}
               </ListboxOptions>
             </div>
-            {eventError && <div className="text-red-500 mt-2">{eventError}</div>}
+            {eventError && (
+              <div className="text-red-500 mt-2">{eventError}</div>
+            )}
           </>
         )}
       </Listbox>
@@ -203,7 +209,9 @@ export default function Form() {
             <ListboxLabel className="block text-sm font-medium leading-6 text-gray-900">
               Number of Tickets
             </ListboxLabel>
-            <div className={`relative mt-2 ${ticketError ? "border-red-500" : ""}`}>
+            <div
+              className={`relative mt-2 ${ticketError ? "border-red-500" : ""}`}
+            >
               <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
                 <span className="flex items-center">
                   <span className="ml-3 block truncate">{selectedTickets}</span>
@@ -255,7 +263,9 @@ export default function Form() {
                 ))}
               </ListboxOptions>
             </div>
-            {ticketError && <div className="text-red-500 mt-2">{ticketError}</div>}
+            {ticketError && (
+              <div className="text-red-500 mt-2">{ticketError}</div>
+            )}
           </>
         )}
       </Listbox>
@@ -273,7 +283,9 @@ export default function Form() {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`mt-1 block py-2 px-5 w-full rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${emailError ? "border-red-500" : ""}`}
+          className={`mt-1 block py-2 px-5 w-full rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+            emailError ? "border-red-500" : ""
+          }`}
           required
         />
         {emailError && <div className="text-red-500 mt-2">{emailError}</div>}
@@ -284,7 +296,7 @@ export default function Form() {
         className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         Submit
-      </button>  
+      </button>
 
       {submittedData && (
         <div className="mt-4">
