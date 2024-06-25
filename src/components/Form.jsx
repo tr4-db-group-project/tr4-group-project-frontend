@@ -288,7 +288,7 @@ export default function Form() {
 
       {submittedData && (
         <div className="mt-4">
-          <h2>Booking submitted! Check email for confirmation</h2>
+          <h2>Booking submitted! Check email for confirmation.</h2>
           <p>Event: {submittedData.eventName}</p>
           <p>Tickets: {submittedData.numberOfTickets}</p>
           <p>Email: {submittedData.email}</p>
