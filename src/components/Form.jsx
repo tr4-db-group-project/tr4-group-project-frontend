@@ -27,7 +27,7 @@ export default function Form({ setSubmittedData }) {
     }
 
     if (selectedTickets === 0) {
-      setTicketError("Number of tickets cannot be zero");
+      setTicketError("You must book at least one ticket");
       hasError = true;
     } else {
       setTicketError("");

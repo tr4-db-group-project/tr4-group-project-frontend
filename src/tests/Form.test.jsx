@@ -24,7 +24,7 @@ describe("Form Component", () => {
     fireEvent.click(screen.getByRole('button', { name: /submit/i }));
 
     expect(await screen.findByText("You must choose an event")).toBeInTheDocument();
-    expect(await screen.findByText("Number of tickets cannot be zero")).toBeInTheDocument();
+    expect(await screen.findByText("You must book at least one ticket")).toBeInTheDocument();
     expect(await screen.findByText("Please enter a valid email")).toBeInTheDocument();
   });
 });
