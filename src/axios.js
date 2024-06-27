@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
-const instance = axios.create({
-  baseURL: 'http://localhost:8080/api/booking', 
-});
+const axiosInstance = axios.create({
+  baseURL: "https://backend-deployment-pzp5hjziaq-oc.a.run.app/api/booking",
+  });
 
-export default instance;
+export default axiosInstance;
